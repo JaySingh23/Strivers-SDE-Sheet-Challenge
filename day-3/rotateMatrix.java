@@ -1,16 +1,25 @@
 import java.util.*;
 
 public class rotateMatrix {
-    public static void main() {
+    public static void main(String[] args) {
         try(Scanner sc = new Scanner(System.in)) {
             int n = sc.nextInt();
             ArrayList<ArrayList<Integer>> mat = new ArrayList<ArrayList<Integer>>();
             for(int i = 0; i < n; i++) {
+                List<Integer> in = new ArrayList<Integer>(n);
                 for(int j = 0; j < n; j++) {
-                    mat.get(i).set(j, sc.nextInt());
+                    in.add(sc.nextInt());
                 }
+                mat.add(new ArrayList<>(in));
             }
             rotateMatrixHelper(mat, 0, n, 0, n);
+            //print the array
+            for(int i = 0; i < n; i++) {
+                for(int j = 0; j < n; j++) {
+                    System.out.print(mat.get(i).get(j));
+                }
+                System.out.println();
+            }
         }
     }
    
